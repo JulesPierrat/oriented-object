@@ -2,7 +2,7 @@ class Shape {
     constructor (coords) {
         this.id = LISTE_SHAPE.length;
         this.coords = coords;
-        this.size = new Size (Math.floor(Math.random() * 80) + 20, Math.floor(Math.random() * 80) + 20);
+        this.size = new Size (Math.floor(Math.random() * 5) + 2, Math.floor(Math.random() * 5) + 2);
         this.color = new Color (Math.floor(Math.random() *256), Math.floor(Math.random() *256), Math.floor(Math.random() *256));
         this.dom_object = undefined;
         LISTE_SHAPE.push(this);

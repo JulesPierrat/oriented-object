@@ -12,7 +12,6 @@ function drawShape(e) {
     });
 
     var shape;
-    console.log(type);
     if (type == "rectangle") {
         shape = new Rectangle(mouseCoords);
     } else if (type == "ellipse") {
@@ -22,4 +21,33 @@ function drawShape(e) {
     }
 
     shape.draw();
+}
+
+function drawLotOfShape(n){
+    var bb = document.getElementById('canvas').getBoundingClientRect();
+    for (var i = 0 ; i < n ; i++) {
+        // get random point
+        var coords = new Coordinate(Math.floor(Math.random() * bb.width), Math.floor(Math.random() * bb.height));
+
+        // get the type of shape
+        var type;
+        document.querySelectorAll('.radio-input').forEach(e => {
+            if (e.checked) {
+                type = e.id.split("input-")[1];
+            }
+        });
+
+        var shape;
+        if (type == "rectangle") {
+            shape = new Rectangle(coords);
+        } else if (type == "ellipse") {
+            shape = new Ellipse(coords);
+        } else if (type == "triangle") {
+            shape = new Triangle(coords);
+        }
+
+        shape.draw();
+    }
+    
+
 }
